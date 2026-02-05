@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>SIGNUP</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+    
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2e1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url("images/hero.jpg"); /* Replace with a real image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .signup-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            border: 2px solid #4CAF50;
+            margin: 20px 0;
+        }
+        .signup-container h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #2e7d32;
+        }
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #388e3c;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #a5d6a7;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .signup-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .signup-button:hover {
+            background-color: #388e3c;
+        }
+        .terms {
+            font-size: 14px;
+            text-align: left;
+            margin: 15px 0;
+        }
+        .terms input {
+            margin-right: 5px;
+        }
+        .or-divider {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        .or-divider span {
+            flex: 1;
+            height: 1px;
+            background: #81c784;
+        }
+        .or-divider p {
+            margin: 0 10px;
+            color: #4CAF50;
+        }
+        .signup-google {
+            background-color: #db4437;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .signup-google:hover {
+            background-color: #c1351d;
+        }
+        .existing-account {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .existing-account a {
+            color: #1b5e20;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .existing-account a:hover {
+            text-decoration: underline;
+        }
+        nav.navbar {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+     <!-- Menu section below signup form -->
+     <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="" />
+            <span>SIGNUP</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarBottomMenu"
+            aria-controls="navbarBottomMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarBottomMenu">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="product.html">Product</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="client.html">Client</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="signin.html">Signin</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="signup.html">Signup</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    <div class="signup-container">
+        <h2>Create Your Herbal Store Account</h2>
+        <form action="signup.php" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email or mobile phone number</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div class="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+            </div>
+            <button class="signup-button" type="submit">
+                Sign Up
+            </button>
+        </form>
+        
+        <p class="existing-account">Already have an account? <a href="signin.html">Sign in</a></p>
+    </div>
+
+</body>
+</html>

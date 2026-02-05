@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Herbal Products</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f9f6;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      max-width: 350px;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product-content {
+      padding: 20px;
+    }
+
+    .product-title {
+      font-size: 1.5em;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    .product-description {
+      font-size: 0.95em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .view-button {
+      display: inline-block;
+      background: #81c784;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .view-button:hover {
+      background: #66bb6a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/350x220?text=Herbal+Tea" alt="Herbal Tea" class="product-image">
+    <div class="product-content">
+      <h2 class="product-title">Organic Herbal Tea</h2>
+      <p class="product-description">
+        A calming blend of chamomile, peppermint, and lemongrass to soothe your senses.
+      </p>
+      <a href="#" class="view-button">View Details</a>
+    </div>
+  </div>
+
+</body>
+</html>

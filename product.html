@@ -1,0 +1,1378 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <style>
+        
+       * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa url('images/ai-generated-herbal-frame-on-neutral-background-photo.jpg') no-repeat center center/cover;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        /* Header Section */
+        .header_section {
+            background-color: yellowgreen;
+            color: aliceblue;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-family: cursive;
+            color: aliceblue;
+            text-decoration: none;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            margin: 10px 0 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #3e8e41;
+            border-radius: 5px;
+        }
+
+        .nav-link.active {
+            background-color: #2f6d2f;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero_section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero_detail h1 {
+            font-size: 3.5rem;
+            font-family: cursive;
+            color: #2f6d2f;
+            letter-spacing: 5px;
+        }
+
+        .hero_detail h3 {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+
+        /* Product Container */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .BOX {
+            background-color: #fff;
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .BOX:hover {
+            transform: translateY(-5px);
+        }
+
+        .Image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            border: 3px solid #6fde90;
+        }
+
+        .heading {
+            font-size: 1.2rem;
+            color: #2f6d2f;
+            margin: 10px 0;
+            height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .price {
+            font-size: 1rem;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background-color: #3e8e41;
+        }
+
+        .button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .message {
+            color: #2f6d2f;
+            font-weight: bold;
+            margin-top: 10px;
+            display: none;
+            text-align: center;
+        }
+
+        .view-cart-button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .view-cart-button:hover {
+            background: #3e8e41;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+
+            .BOX {
+                min-height: 350px;
+            }
+
+            .Image {
+                height: 150px;
+            }
+
+            .heading {
+                font-size: 1rem;
+                height: 35px;
+            }
+
+            .navbar-brand {
+                font-size: 1.8rem;
+            }
+
+            .nav-item {
+                margin: 0 10px;
+            }
+
+            .nav-link {
+                font-size: 1rem;
+                padding: 8px 10px;
+            }
+
+            .hero_detail h1 {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .hero_detail h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+   <div class="hero_area">
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" alt="">
+                        <span>GREENGLOW</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                                <li class="nav-item"><a class="nav-link" style="background-color: #049c1d;" href="product.html">Product</a></li>
+                                <li class="nav-item"><a class="nav-link" href="client.html">Client</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section class="hero_section">
+            <div class="hero_detail">
+                <h1>
+                    <span>G</span>
+                    <span>R</span>
+                    <span>E</span>
+                    <span>E</span>
+                    <span>N</span>
+                    <span>G</span>
+                    <span>L</span>
+                    <span>O</span>
+                    <span>W</span>
+                </h1>
+                <h3>Natural product</h3>
+            </div>
+        </section>
+    </div>
+
+    
+    <div class="container">
+        <div class="BOX">
+            <h2 class="heading">Herbs body wash</h2>
+            <img src="images/image1.jpeg" alt="Herbs body wash" class="Image">
+            <h3 class="price">Price ₹200</h3>
+                <div class="button-container">
+                <button class="button" data-name="Herbs body wash" data-price="200" data-image="images/image1.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/hbw.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Khadi face wash</h2>
+            <img src="images/image2.jpeg" alt="Khadi face wash" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Khadi face wash" data-price="200" data-image="images/image2.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/kfw.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Natural glow kesar</h2>
+            <img src="images/image3.jpeg" alt="Natural glow kesar" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Natural glow kesar" data-price="200" data-image="images/image3.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-1.html">View Details</a></button>
+              
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal scrub</h2>
+            <img src="images/image4.jpeg" alt="Herbal scrub" class="Image">
+            <h3 class="price">Price ₹199</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbal scrub" data-price="199" data-image="images/image4.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-2.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Himalaya body wash</h2>
+            <img src="images/image5.jpeg" alt="Himalaya body wash" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+                <button class="button" data-name="Himalaya body wash" data-price="250" data-image="images/image5.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-2.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face wash</h2>
+            <img src="images/image6.jpeg" alt="Face wash" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Face wash" data-price="100" data-image="images/image6.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-3.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Kavitas face wash</h2>
+            <img src="images/image7.jpeg" alt="Kavitas face wash" class="Image">
+            <h3 class="price">Price ₹150</h3>
+            <div class="button-container">
+                <button class="button" data-name="Kavitas face wash" data-price="150" data-image="images/image7.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-4.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Neem face wash</h2>
+            <img src="images/image8.jpeg" alt="Neem face wash" class="Image">
+            <h3 class="price">Price ₹199</h3>
+            <div class="button-container">
+                <button class="button" data-name="Neem face wash" data-price="199" data-image="images/image8.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-5.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Skin serum</h2>
+            <img src="images/image9.jpeg" alt="Skin serum" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+                <button class="button" data-name="Skin serum" data-price="250" data-image="images/image9.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-6.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Compact cream</h2>
+            <img src="images/image10.jpeg" alt="Compact cream" class="Image">
+            <h3 class="price">Price ₹250</h3>        
+            <div class="button-container">
+                <button class="button" data-name="Compact cream" data-price="250" data-image="images/image10.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-7.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Vitamin E tablet</h2>
+            <img src="images/image11.jpeg" alt="Vitamin E tablet" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Vitamin E tablet" data-price="100" data-image="images/image11.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-8.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Secalia cream</h2>
+            <img src="images/image12.jpeg" alt="Secalia cream" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Secalia cream" data-price="500" data-image="images/image12.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-9.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Conditioner</h2>
+            <img src="images/image13.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-10.html">View Details</a></button>
+            </div> 
+            <center>
+            <p class="message" style="display:none;">Added to cart!</p>
+            </center>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Dabur face cream</h2>
+            <img src="images/image23.jpeg" alt="Dabour Face cream" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Dabour Face Cream" data-price="100" data-image="images/image23.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-11.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Hair oil</h2>
+            <img src="images/image14.jpeg" alt="Hair oil" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Hair oil" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-12.html">View Details</a></button>           
+             </div>
+
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Neelambari hair oil</h2>
+            <img src="images/image15.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-13.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal hair oil</h2>
+            <img src="images/image16.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-14.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Beaster hair oil</h2>
+            <img src="images/image17.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-15.html">View Details</a></button>
+                        </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal serum</h2>
+            <img src="images/image18.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-16.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading"> Natural hair oil</h2>
+            <img src="images/image18.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹300</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-17.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Hair oil</h2>
+            <img src="images/image14.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbs body wash" data-price="200" data-image="images/image1.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-18.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Neelambari hair oil</h2>
+            <img src="images/image15.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbs body wash" data-price="200" data-image="images/image1.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-19.html">View Details</a></button> </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal hair oil</h2>
+            <img src="images/image16.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbs body wash" data-price="200" data-image="images/image1.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-20.html">View Details</a></button></div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Beaster hair oil</h2>
+            <img src="images/image17.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbs body wash" data-price="200" data-image="images/image1.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-21.html">View Details</a></button></div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal serum</h2>
+            <img src="images/image18.jpeg" alt="Herbal serum" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbal serum" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-22.html">View Details</a></button></div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Dabur hair oil</h2>
+            <img src="images/image142.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹300</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbs body wash" data-price="200" data-image="images/image1.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-23.html">View Details</a></button> </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Beaster hair oil</h2>
+            <img src="images/image17.jpeg" alt="Beaster hair oil" class="Image">
+            <h3 class="price">Price ₹600</h3>
+            <div class="button-container">
+                <button class="button" data-name="Beaster hair oil" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-24.html">View Details</a></button></div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Dhayani hair oil</h2>
+            <img src="images/image21.jpeg" alt="Hair oil" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Hair oil" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-25.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Dhayani hair oil</h2>
+            <img src="images/image21.jpeg" alt="Dhayani hair oil" class="Image">
+            <h3 class="price">Price ₹600</h3>
+            <div class="button-container">
+                <button class="button" data-name="Dhayani hair oil" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-26.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Dabur face cream</h2>
+            <img src="images/image23.jpeg" alt="Dabur face cream" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Dabur face cream" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-27.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Navayur herbal product</h2>
+            <img src="images/image24.jpeg" alt="Navayur herbal product" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Navayur herbal product" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-28.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Himalaya product</h2>
+            <img src="images/image25.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-29.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Ayurvedic cream</h2>
+            <img src="images/image26.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-30.html">View Details</a></button>   </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbs</h2>
+            <img src="images/image27.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-31.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal face cream</h2>
+            <img src="images/image28.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-32.html">View Details</a></button>
+                        </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Dabur cream</h2>
+            <img src="images/image29.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-33.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Baidyanth conditioner</h2>
+            <img src="images/image30.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-34.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face cream</h2>
+            <img src="images/image31.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹300</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-35.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Natural face cream</h2>
+            <img src="images/image32.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-36.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face  powder</h2>
+            <img src="images/image33.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-37.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face pack</h2>
+            <img src="images/image34.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-38.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal face pack</h2>
+            <img src="images/image35.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-39.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">We face pack</h2>
+            <img src="images/image36.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-40.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face pack</h2>
+            <img src="images/image37.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-41.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face pack arlak</h2>
+            <img src="images/image38.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-42.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face pack baidyanath</h2>
+            <img src="images/image39.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹150</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-43.html">View Details</a></button>
+              </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face pack kai</h2>
+            <img src="images/image40.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹179</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-44.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face pack swastik</h2>
+            <img src="images/image41.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹199</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-45.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face pack navayur</h2>
+            <img src="images/image42.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-46.html">View Details</a></button>
+                
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face pack</h2>
+            <img src="images/image43.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-47.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face serum</h2>
+            <img src="images/image44.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-48.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Kadhi serum</h2>
+            <img src="images/image45.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹199</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-49.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face serum</h2>
+            <img src="images/image46.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹700</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-50.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herb face serum</h2>
+            <img src="images/image47.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-51.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face serum</h2>
+            <img src="images/image48.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹750</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-52.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herb tree face serum</h2>
+            <img src="images/image49.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-53.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Himalaya Face serum</h2>
+            <img src="images/image50.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-54.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">HA face serum</h2>
+            <img src="images/image51.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹700</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-55.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face serum</h2>
+            <img src="images/image2.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹180</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-56.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Madhu plus hair serum</h2>
+            <img src="images/image57.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹300</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-57.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Hair serum</h2>
+            <img src="images/image54.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹190</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-58.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbs hair serum</h2>
+            <img src="images/image55.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹600</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-59.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Dabur hair serum</h2>
+            <img src="images/image56.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹300</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-60.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Jovees hair serum</h2>
+            <img src="images/image60.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹170</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-61.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Tailum</h2>
+            <img src="images/image64.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹150</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-62.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Hair Care</h2>
+            <img src="images/image59.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-63.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Kerala tailum</h2>
+            <img src="images/image60.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹300</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-64.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Ayurveda Tailum</h2>
+            <img src="images/image61.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹800</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-65.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Your logo Tailum</h2>
+            <img src="images/image62.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-66.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Tailum</h2>
+            <img src="images/image58.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹340</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-67.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Ooty Tailum</h2>
+            <img src="images/image64.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-68.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Birla tailum</h2>
+            <img src="images/image65.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹700</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-69.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Hair wash</h2>
+            <img src="images/image66.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-70.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Mukti gold hair wash</h2>
+            <img src="images/image68.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹800</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-71.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Hair wash</h2>
+            <img src="images/image72.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹800</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-72.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Ayur hair wash</h2>
+            <img src="images/image75.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹800</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-73.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Keshni shampoo</h2>
+            <img src="images/image69.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-74.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herb shampoo</h2>
+            <img src="images/image70.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹300</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-75.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Shamboo</h2>
+            <img src="images/image71.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-76.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal hair wash</h2>
+            <img src="images/image72.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-77.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Powder wash</h2>
+            <img src="images/image73.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹600</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+           
+                <button class="button"><a href="u/Untitled-78.html">View Details</a></button> </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbodaya hair wash</h2>
+            <img src="images/image74.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹760</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-79.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">    `1q</h2>
+            <img src="images/image75.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-80.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herb shop</h2>
+            <img src="images/image76.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹300</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-81.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Natural shop</h2>
+            <img src="images/image77.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-82.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">soap</h2>
+            <img src="images/image78.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹150</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-83.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Sandal soap</h2>
+            <img src="images/image79.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-84.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Ambery soap</h2>
+            <img src="images/image80.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹150</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-85.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herb soap</h2>
+            <img src="images/image81.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-86.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Sandal soap</h2>
+            <img src="images/image82.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹600</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-87.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Honey soap</h2>
+            <img src="images/image83.jpeg" alt="Conditioner" class="Image">
+            <h3 class="price">Price ₹400</h3>
+            <div class="button-container">
+                <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-88.html">View Details</a></button>
+             </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+              
+        <div class="BOX">
+            <h2 class="heading">Aloe shop</h2>
+            <img src="images/image84.jpeg" alt="Hair oil" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+        <button class="button" data-name="Conditioner" data-price="100" data-image="images/image13.jpeg">Add to Cart</button>
+        <button class="button"><a href="u/Untitled-89.html">View Details</a></button>     
+         </div>
+        <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal soap</h2>
+            <img src="images/image85.jpeg" alt="Hair oil" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Hair oil" data-price="200" data-image="images/image14.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-90.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Soap</h2>
+            <img src="images/image86.jpeg" alt="Neelambari hair oil" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Neelambari hair oil" data-price="500" data-image="images/image15.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-91.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal soap</h2>
+            <img src="images/image87.jpeg" alt="Natural hair oil" class="Image">
+            <h3 class="price">Price ₹200</h3>
+            <div class="button-container">
+                <button class="button" data-name="Natural hair oil" data-price="200" data-image="images/image16.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-92.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal liquid</h2>
+            <img src="images/image88.jpeg" alt="Beaster hair oil" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Beaster hair oil" data-price="500" data-image="images/image17.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-93.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Perfume</h2>
+            <img src="images/image94.jpeg" alt="Herbal serum" class="Image">
+            <h3 class="price">Price ₹250</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbal serum" data-price="250" data-image="images/image18.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-94.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face mask</h2>
+            <img src="images/image95.jpeg" alt="Dabur face cream" class="Image">
+            <h3 class="price">Price ₹100</h3>
+            <div class="button-container">
+                <button class="button" data-name="Dabur face cream" data-price="100" data-image="images/image23.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-95.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal hair removal</h2>
+            <img src="images/image97.jpeg" alt="Herbal face cream" class="Image">
+            <h3 class="price">Price ₹500</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbal face cream" data-price="500" data-image="images/image28.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-96.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Herbal liquid</h2>
+            <img src="images/image88.jpeg" alt="Herbal liquid" class="Image">
+            <h3 class="price">Price ₹900</h3>
+            <div class="button-container">
+                <button class="button" data-name="Herbal liquid" data-price="900" data-image="images/image88.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-97.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Musky Perfume</h2>
+            <img src="images/shopping2.webp" alt="Musky Perfume" class="Image">
+            <h3 class="price">Price ₹300</h3>
+            <div class="button-container">
+                <button class="button" data-name="Musky Perfume" data-price="300" data-image="images/shopping2.webp">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-98.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Health drink</h2>
+            <img src="images/shopping5.jpg" alt="Health drink" class="Image">
+            <h3 class="price">Price ₹350</h3>
+            <div class="button-container">
+                <button class="button" data-name="Health drink" data-price="350" data-image="images/shopping5.jpg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-96.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Face mask</h2>
+            <img src="images/image95.jpeg" alt="Face mask" class="Image">
+            <h3 class="price">Price ₹375</h3>
+            <div class="button-container">
+                <button class="button" data-name="Face mask" data-price="375" data-image="images/image95.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-97.html">View Details</a></button>
+            </div>
+            <center>
+            <p class="message" style="display:none;">Added to cart!</p>
+            </center>
+        </div>
+        <div class="BOX">
+            <h2 class="heading">Hair removal cream</h2>
+            <img src="images/image98.jpeg" alt="Hair removal cream" class="Image">
+            <h3 class="price">Price ₹800</h3>
+            <div class="button-container">
+                <button class="button" data-name="Hair removal cream" data-price="800" data-image="images/image98.jpeg">Add to Cart</button>
+                <button class="button"><a href="u/Untitled-98.html">View Details</a></button>
+            </div>
+            <p class="message" style="display:none;">Added to cart!</p>
+        </div>
+    </div>
+    
+
+    <button class="view-cart-button" 
+    onclick="window.location.href='addtocart.html'" 
+    style="position: fixed; right: 20px; bottom: 20px; z-index: 1000; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+View Cart
+</button>
+    <script>
+        // Function to add product to cart
+        document.querySelectorAll('.button[data-name]').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = {
+                    name: this.getAttribute('data-name'),
+                    price: this.getAttribute('data-price'),
+                    image: this.getAttribute('data-image')
+                };
+
+                // Get existing cart from localStorage or initialize an empty array
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push(product); // Add the new product to the cart
+
+                // Save the updated cart back to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // Show message that the product has been added to the cart
+                const messageElement = this.parentElement.nextElementSibling;
+                messageElement.style.display = 'block';
+                messageElement.textContent = 'Added to cart!';
+
+                // Optionally, you can set a timeout to hide the message after a few seconds
+                setTimeout(() => {
+                    messageElement.style.display = 'none';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

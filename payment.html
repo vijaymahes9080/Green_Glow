@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Herbal Store</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e8f5e9;
+            margin: 0;
+            padding: 0;
+            background: url("images/ai-generated-herbal-frame-on-neutral-background-photo.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .payment-container {
+            width: 60%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid #4CAF50;
+        }
+        h2 {
+            text-align: center;
+            color: #2e7d32;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #388e3c;
+        }
+        .cart-item-details {
+            flex: 1;
+            margin-left: 15px;
+        }
+        .cart-item-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1b5e20;
+        }
+        .cart-item-price {
+            color: #388e3c;
+            font-size: 16px;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #388e3c;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #a5d6a7;
+            border-radius: 5px;
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .submit-button:hover {
+            background-color: #2e7d32;
+        }
+        .total-amount {
+            font-size: 20px;
+            font-weight: bold;
+            color: #388e3c;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .qr-code {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .print-button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .print-button:hover {
+            background-color: #1976D2;
+        }
+        .stylish-button {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    color: white;
+    padding: 14px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.stylish-button:hover {
+    background: linear-gradient(135deg, #388E3C, #66BB6A);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.pay-button {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    color: white;
+    padding: 14px 0;
+    flex: 1;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pay-button:hover {
+    background: linear-gradient(135deg, #388E3C, #66BB6A);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.print-button {
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+    color: white;
+    padding: 14px 0;
+    flex: 1;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.print-button:hover {
+    background: linear-gradient(135deg, #1976D2, #42A5F5);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.share-button {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 14px 0;
+    flex: 1;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-button:hover {
+    background: linear-gradient(135deg, #128C7E, #075E54);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Payment Details</h2>
+        <div id="cart-items"></div>
+        <div class="total-amount" id="total-amount">Total: ₹0</div>
+
+        <div class="qr-code" id="qr-code"></div>
+        
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="Enter your card number" required>
+        </div>
+        <div class="form-group">
+            <label for="expiry-date">Expiry Date</label>
+            <input type="text" id="expiry-date" placeholder="MM/YY" required>
+        </div>
+        <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="Enter CVV" required>
+        </div>
+        <div class="button-group">
+    <button class="pay-button" onclick="submitPayment()">Pay Now</button>
+    <button class="print-button" onclick="printReceipt()">Print Receipt</button>
+    <button class="share-button" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+</div>
+
+        
+    </div>
+
+    <script>
+        function loadCart() {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          const cartItemsContainer = document.getElementById('cart-items');
+          const totalAmountContainer = document.getElementById('total-amount');
+          let totalAmount = 0;
+    
+          if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            totalAmountContainer.innerHTML = 'Total: ₹0';
+            return;
+          }
+    
+          cart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+              <img src="${item.image}" alt="${item.name}">
+              <div class="cart-item-details">
+                <p class="cart-item-title">${item.name}</p>
+                <p class="cart-item-price">₹${parseFloat(item.price).toFixed(2)}</p>
+              </div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+            totalAmount += parseFloat(item.price);
+          });
+    
+          totalAmountContainer.innerHTML = `Total: ₹${totalAmount.toFixed(2)}`;
+          generateQRCode(totalAmount, 'maheswarimuruganantham57@okaxis');
+        }
+    
+        function generateQRCode(amount, upiId) {
+          const qr = new QRious({
+            element: document.createElement('canvas'),
+            value: `upi://pay?pa=${upiId}&pn=HerbalStore&am=${amount.toFixed(2)}&cu=INR`,
+            size: 200
+          });
+          const qrCodeContainer = document.getElementById('qr-code');
+          qrCodeContainer.innerHTML = '';
+          qrCodeContainer.appendChild(qr.canvas);
+        }
+    
+        function submitPayment() {
+          const name = document.getElementById('name').value.trim();
+          const cardNumber = document.getElementById('card-number').value.trim();
+          const expiryDate = document.getElementById('expiry-date').value.trim();
+          const cvv = document.getElementById('cvv').value.trim();
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+          if (!name || !cardNumber || !expiryDate || !cvv) {
+            alert('Please fill in all the payment details.');
+            return;
+          }
+    
+          if (cart.length === 0) {
+            alert('Cart is empty. Please add products before paying.');
+            return;
+          }
+    
+          fetch('payment.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, card_number: cardNumber, expiry_date: expiryDate, cvv, cart })
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.success) {
+              alert('Payment successful! Thank you for your purchase.');
+              localStorage.removeItem('cart');
+              window.location.href = 'product.html';
+            } else {
+              alert('Payment failed: ' + data.message);
+            }
+          })
+          .catch(err => {
+            console.error(err);
+            alert('Error processing payment.');
+          });
+        }
+    
+        function printReceipt() {
+          const name = document.getElementById('name').value;
+          const totalAmount = document.getElementById('total-amount').innerText;
+          const cartItems = document.getElementById('cart-items').innerHTML;
+    
+          const printWindow = window.open('', '', 'height=600,width=800');
+          printWindow.document.write('<html><head><title>Receipt</title>');
+          printWindow.document.write('<style>body { font-family: Arial; }</style></head><body>');
+          printWindow.document.write('<h2>Receipt</h2>');
+          printWindow.document.write(`<p>Name: ${name}</p>`);
+          printWindow.document.write(`<div>${cartItems}</div>`);
+          printWindow.document.write(`<p>Total Amount: ${totalAmount}</p>`);
+          printWindow.document.write('<p>Thank you for shopping with Herbal Store!</p>');
+          printWindow.document.write('</body></html>');
+          printWindow.document.close();
+          printWindow.print();
+        }
+    
+        function shareOnWhatsApp() {
+          const totalAmount = document.getElementById('total-amount').innerText;
+          const message = `I just made a purchase of ${totalAmount} at the Herbal Store! 🌿🛒`;
+          window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    
+        window.onload = loadCart;
+      </script>
+</body>
+</html>
